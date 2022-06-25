@@ -1,9 +1,16 @@
 <template>
-  <h1 class="text-6xl">Hello Vue</h1>
+  <div>
+    <MainNav></MainNav>
+  </div>
 </template>
 
 <script>
+import MainNav from '@/components/MainNav.vue';
+
 export default {
   name: 'App',
+  components: {
+    MainNav,
+  },
 };
 </script>
