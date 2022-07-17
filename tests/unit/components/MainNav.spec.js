@@ -16,7 +16,7 @@ describe('mainNav', () => {
     const navigationMenuText = navigationMenuItems.map((item) => item.text());
     expect(navigationMenuText).toEqual([
       'Teams',
-      'Location',
+      'Locations',
       'Life at Bobo',
       'How we hire',
       'Students',
