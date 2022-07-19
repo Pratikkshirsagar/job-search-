@@ -7,9 +7,11 @@ describe('Headline', () => {
   beforeEach(() => {
     jest.useFakeTimers('legacy');
   });
+
   afterEach(() => {
     jest.useRealTimers();
   });
+
   it('displays introductory action verb', () => {
     const wrapper = mount(Headline);
     const actionPhrase = wrapper.find(`[data-test='action-phrase']`);

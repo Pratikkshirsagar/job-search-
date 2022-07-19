@@ -17,7 +17,7 @@ export default {
       required: false,
       default: 'primary',
       validator(value) {
-        return ['praimary', 'secondary'].includes(value);
+        return ['primary', 'secondary'].includes(value);
       },
     },
   },
@@ -33,11 +33,11 @@ export default {
 
 <style lang="postcss" scoped>
 button {
-  @apply px-5 py-3 rounded font-medium;
+  @apply px-5 py-3 font-medium;
 }
 
 .primary {
-  @apply text-white bg-brand-blue-1 hover:shadow-blue;
+  @apply rounded text-white border-0 bg-brand-blue-1 hover:shadow-blue;
 }
 
 .secondary {
