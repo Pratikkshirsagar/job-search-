@@ -1,42 +1,35 @@
 import { mount } from '@vue/test-utils';
 
-import Subnav from '@/components/Navigation/Subnav.vue';
+import Subnav from '@/components/Navigation/Subnav';
 
 describe('Subnav', () => {
-  describe('When user is on job page', () => {
-    it('desplays job count', () => {
-      const wrapper = mount(Subnav, {
-        global: {
-          stubs: {
-            FontAwesomeIcon: true,
-          },
+  const createConfig = (routeName) => ({
+    global: {
+      mocks: {
+        $route: {
+          name: routeName,
         },
-        data() {
-          return {
-            onJobResultPage: true,
-          };
-        },
-      });
-      const jobCount = wrapper.find(`[data-test='job-count']`);
+      },
+      stubs: {
+        FontAwesomeIcon: true,
+      },
+    },
+  });
+
+  describe('when user is on job page', () => {
+    it('displays job count', () => {
+      const routeName = 'JobResults';
+      const wrapper = mount(Subnav, createConfig(routeName));
+      const jobCount = wrapper.find("[data-test='job-count']");
       expect(jobCount.exists()).toBe(true);
     });
   });
 
-  describe('When the user is not on job page', () => {
-    it('does NOT diaplay the count', () => {
-      const wrapper = mount(Subnav, {
-        global: {
-          stubs: {
-            FontAwesomeIcon: true,
-          },
-        },
-        data() {
-          return {
-            onJobResultPage: false,
-          };
-        },
-      });
-      const jobCount = wrapper.find(`[data-test='job-count']`);
+  describe('when user is not on jobs page', () => {
+    it('does NOT display job count', () => {
+      const routeName = 'Home';
+      const wrapper = mount(Subnav, createConfig(routeName));
+      const jobCount = wrapper.find("[data-test='job-count']");
       expect(jobCount.exists()).toBe(false);
     });
   });
